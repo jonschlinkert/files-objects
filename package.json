@@ -1,0 +1,41 @@
+{
+  "name": "files-objects",
+  "description": "Expand files objects into src-dest mappings.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/files-objects",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/files-objects",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/files-objects/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "extend-shallow": "^2.0.1",
+    "object.omit": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [],
+  "verb": {
+    "related": {
+      "list": [
+        "expand-config",
+        "expand-files",
+        "expand-task",
+        "expand-target"
+      ]
+    }
+  }
+}
