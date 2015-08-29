@@ -10,10 +10,6 @@
 var extend = require('extend-shallow');
 var omit = require('object.omit');
 var reserved = require('./reserved');
-var util = require('util');
-var inspect = function(obj) {
-  return util.inspect(obj, null, 10);
-};
 
 /**
  * Expand files-objects into an array of `src-dest` mappings.
