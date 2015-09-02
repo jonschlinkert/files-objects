@@ -1,7 +1,7 @@
 {
   "name": "files-objects",
   "description": "Expand files objects into src-dest mappings.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/jonschlinkert/files-objects",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/files-objects",
