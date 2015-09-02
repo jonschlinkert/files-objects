@@ -32,15 +32,22 @@ module.exports = function filesObjects(config, target) {
     var files = {};
     files.src = arrayify(config.src);
     files.dest = config.dest || '';
-    var res = {files: arrayify(files)};
+    var res = {files: [files]};
     if (target) res = extend({}, target, res);
     return res;
   }
 
   target = target || {};
   config.files = arrayify(config.files || []);
-  var opts = config.options;
 
+  for (var i = 0; i < config.files.length; i++) {
+    var ele = config.files[i];
+    if (typeof ele === 'string') {
+      config.files[i] = {src: [ele]};
+    }
+  }
+
+  var opts = config.options;
   for (var key in config) {
     if (reserved.indexOf(key) > -1) {
       continue;

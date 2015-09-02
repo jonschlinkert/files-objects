@@ -53,13 +53,18 @@ describe('toMapping', function () {
     assert(config.files[0].src[0] === 'lib/*.js');
   });
 
-  it('should an object with src-dest to a files array:', function () {
+  it('should convert an object with src-dest to a files array:', function () {
     var config = toMapping({dest: 'foo/', src: 'lib/*.js'});
 
     assert(Array.isArray(config.files));
     assert(Array.isArray(config.files[0].src));
     assert(config.files[0].src[0] === 'lib/*.js');
     assert(config.files[0].dest === 'foo/');
+  });
+
+  it('should support passing a files array:', function () {
+    var config = toMapping({files: ['*.js']});
+    assert(config.files[0].src[0] === '*.js');
   });
 
   it('should extend "target" options onto objects:', function () {
