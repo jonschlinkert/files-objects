@@ -53,6 +53,14 @@ describe('toMapping', function () {
     assert(config.files[0].src[0] === 'lib/*.js');
   });
 
+  it('should support src and dest being passed on options:', function () {
+    // this allows a default src/dest to be passed from main options
+    // of consuming libraries
+    var config = toMapping({options: {src: 'lib/*.js', dest: 'foo/'}});
+    assert(Array.isArray(config.files[0].src));
+    assert(config.files[0].src[0] === 'lib/*.js');
+  });
+
   it('should convert an object with src-dest to a files array:', function () {
     var config = toMapping({dest: 'foo/', src: 'lib/*.js'});
 

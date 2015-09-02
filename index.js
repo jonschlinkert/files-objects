@@ -27,6 +27,8 @@ module.exports = function filesObjects(config, target) {
     config = toObject.apply(null, arguments);
   }
 
+  config = fromOptions(config);
+
   // allow `src` to be a setter
   if ('src' in config || config.hasOwnProperty('dest')) {
     var files = {};
@@ -68,6 +70,20 @@ module.exports = function filesObjects(config, target) {
 
 function arrayify(val) {
   return Array.isArray(val) ? val : [val];
+}
+
+function fromOptions(config) {
+  if (!config.options) return config;
+  var opts = config.options;
+  if (!('src' in config) && opts.src) {
+    config.src = opts.src;
+    delete config.options.src;
+  }
+  if (!('dest' in config) && opts.dest) {
+    config.dest = opts.dest;
+    delete config.options.dest;
+  }
+  return config;
 }
 
 function toObject(src, dest, options) {
